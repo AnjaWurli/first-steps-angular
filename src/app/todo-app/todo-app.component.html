@@ -1,0 +1,38 @@
+<p>
+    <mat-toolbar>
+        <span>Todo-App</span>
+    </mat-toolbar>
+</p>
+<main>
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Fill form field</mat-label>
+            <input matInput placeholder="Placeholder" id="add">
+        </mat-form-field>
+        <button mat-raised-button color="primary">Primary</button>
+    </form>
+
+    <mat-radio-group>
+        <mat-radio-button class="example-radio-button">
+            All
+        </mat-radio-button>
+        <mat-radio-button class="example-radio-button">
+            Open
+        </mat-radio-button>
+        <mat-radio-button class="example-radio-button">
+            Done
+        </mat-radio-button>
+    </mat-radio-group>
+
+
+    <section>
+        <h2>Checklist</h2>
+        <p>
+            <mat-checkbox formControlName="pepperoni">Pepperoni</mat-checkbox>
+        </p>
+        <p>
+            <mat-checkbox formControlName="extracheese">Extra Cheese</mat-checkbox>
+        </p>
+    </section>
+    <mat-slide-toggle>Toggle me!</mat-slide-toggle>
+</main>
