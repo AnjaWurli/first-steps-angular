@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoAppComponent } from './todo-app/todo-app.component';
+import { TodoComponent } from './todo/todo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material.module';
 @NgModule({
-  declarations: [AppComponent, TodoAppComponent],
+  declarations: [AppComponent, TodoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
