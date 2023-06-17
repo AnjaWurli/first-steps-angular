@@ -1,15 +1,20 @@
-<p>
-    <mat-toolbar>
-        <span>Todo-App</span>
-    </mat-toolbar>
-</p>
+<mat-toolbar>
+    <span>Todo-App</span>
+</mat-toolbar>
+
 <main>
     <form>
         <mat-form-field appearance="fill">
-            <mat-label>Fill form field</mat-label>
-            <input matInput placeholder="Placeholder" id="add">
+            <mat-label>Got {{hideTxt?'SECRET':''}} sh*t to do</mat-label>
+            <input matInput id="add" [type]="hideTxt? 'password' : 'text'" minlength="5" [value]="input">
+            <mat-hint>{{[(input)]}}</mat-hint>
+            <button matSuffix mat-icon-button (click)="$event.preventDefault();hideTxt=!hideTxt"
+                [attr.aria-label]="'Hide text'" [attr.aria-pressed]="hideTxt">
+                <mat-icon>{{hideTxt?'key_off':'password'}}</mat-icon>
+            </button>
         </mat-form-field>
-        <button mat-raised-button color="primary">Primary</button>
+        <button mat-raised-button color="primary" class="form-button" (click)="$event.preventDefault()">Add
+            Todo</button>
     </form>
 
     <mat-radio-group>
