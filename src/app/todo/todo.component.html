@@ -6,8 +6,9 @@
     <form>
         <mat-form-field appearance="fill">
             <mat-label>Got {{hideTxt?'SECRET':''}} sh*t to do</mat-label>
-            <input matInput id="add" [type]="hideTxt? 'password' : 'text'" minlength="5" [value]="input">
-            <mat-hint>{{[(input)]}}</mat-hint>
+            <input matInput id="add" [type]="hideTxt? 'password' : 'text'" minlength="5" #input>
+            <mat-hint *ngIf="input.value.length<=5">at least {{input.value.length}}/5 characters</mat-hint>
+            <mat-hint *ngIf="input.value.length>5">{{input.value.length}} characters written</mat-hint>
             <button matSuffix mat-icon-button (click)="$event.preventDefault();hideTxt=!hideTxt"
                 [attr.aria-label]="'Hide text'" [attr.aria-pressed]="hideTxt">
                 <mat-icon>{{hideTxt?'key_off':'password'}}</mat-icon>
@@ -30,14 +31,16 @@
     </mat-radio-group>
 
 
-    <section>
+    <section class="checklist_container">
         <h2>Checklist</h2>
-        <p>
-            <mat-checkbox formControlName="pepperoni">Pepperoni</mat-checkbox>
-        </p>
-        <p>
-            <mat-checkbox formControlName="extracheese">Extra Cheese</mat-checkbox>
-        </p>
+
+        <mat-checkbox formControlName="pepperoni">
+            Pepperoni
+        </mat-checkbox>
+        <mat-checkbox formControlName="extracheese">
+            Extra Cheese
+        </mat-checkbox>
+
+
     </section>
-    <mat-slide-toggle>Toggle me!</mat-slide-toggle>
 </main>

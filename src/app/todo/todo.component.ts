@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class TodoComponent {
   hideTxt: boolean = false;
-  input: string = '';
 }

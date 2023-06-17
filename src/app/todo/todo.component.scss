@@ -6,3 +6,15 @@
 mat-form-field {
   margin: 1rem;
 }
+
+.checklist_container {
+  width: max-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.linethrough {
+  text-decoration: line-through;
+}
