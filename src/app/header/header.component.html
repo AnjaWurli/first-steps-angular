@@ -1,3 +1,12 @@
 <mat-toolbar color="primary" role="header">
-    <span> Welcome!</span>
+    <mat-nav-list class="nav">
+        <h1 mat-list-item routerLink="/">Welcome!</h1>
+        <a mat-list-item routerLink="/todo">Todo</a>
+        <a mat-list-item routerLink="/fruits">Fruits</a>
+
+    </mat-nav-list>
 </mat-toolbar>
+
+<!--
+    <a mat-list-item href="..." *ngFor="let link of links" [activated]="link.isActive">{{ Fruits }}</a>
+-->

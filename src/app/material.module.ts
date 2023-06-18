@@ -8,6 +8,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   imports: [
@@ -19,6 +21,8 @@ import { MatCardModule } from '@angular/material/card';
     MatCheckboxModule,
     MatToolbarModule,
     MatCardModule,
+    FormsModule,
+    MatListModule,
   ],
   exports: [
     MatFormFieldModule,
@@ -29,6 +33,8 @@ import { MatCardModule } from '@angular/material/card';
     MatCheckboxModule,
     MatToolbarModule,
     MatCardModule,
+    FormsModule,
+    MatListModule,
   ],
 })
 export class MaterialModule {}

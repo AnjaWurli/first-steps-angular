@@ -1,0 +1,12 @@
+.nav {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  * {
+    width: fit-content;
+    cursor: pointer;
+  }
+  a {
+    text-decoration: underline;
+  }
+}
