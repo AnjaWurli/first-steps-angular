@@ -6,22 +6,28 @@
     <form>
         <mat-form-field appearance="fill">
             <mat-label>Got {{hideTxt?'SECRET':''}} sh*t to do</mat-label>
-            <input matInput id="add" [type]="hideTxt? 'password' : 'text'" minlength="5" #input>
-            <mat-hint *ngIf="input.value.length<=5">at least {{input.value.length}}/5 characters</mat-hint>
-            <mat-hint *ngIf="input.value.length>5">{{input.value.length}} characters written</mat-hint>
+
+            <input matInput id="add" [type]="hideTxt? 'password' : 'text'" minlength="5" #inputSht>
+
+            <mat-hint *ngIf="inputSht.value.length<=5">
+                at least {{inputSht.value.length}}/5 characters
+            </mat-hint>
+            <mat-hint *ngIf="inputSht.value.length>5">
+                {{inputSht.value.length}} characters written
+            </mat-hint>
+
             <button matSuffix mat-icon-button (click)="$event.preventDefault();hideTxt=!hideTxt"
                 [attr.aria-label]="'Hide text'" [attr.aria-pressed]="hideTxt">
                 <mat-icon>{{hideTxt?'key_off':'password'}}</mat-icon>
             </button>
         </mat-form-field>
-        <button mat-raised-button color="primary" class="form-button" (click)="$event.preventDefault()">Add
-            Todo</button>
+        <button mat-raised-button color="primary" class="form-button" (click)="addTodo($event,inputSht.value)">
+            Add Todo</button>
     </form>
 
     <mat-radio-group>
         <mat-radio-button class="example-radio-button">
-            All
-        </mat-radio-button>
+            All </mat-radio-button>
         <mat-radio-button class="example-radio-button">
             Open
         </mat-radio-button>
@@ -34,13 +40,12 @@
     <section class="checklist_container">
         <h2>Checklist</h2>
 
-        <mat-checkbox formControlName="pepperoni">
-            Pepperoni
+        <mat-checkbox *ngFor="let todo of todos" [checked]="todo.done" #dones (change)="todo.done=$event.checked">
+            {{todo.text}}
+            {{dones.checked}}
         </mat-checkbox>
-        <mat-checkbox formControlName="extracheese">
-            Extra Cheese
-        </mat-checkbox>
-
+        <button mat-raised-button color="accent" (click)="deleteTodos()">
+            Delete Done</button>
 
     </section>
 </main>

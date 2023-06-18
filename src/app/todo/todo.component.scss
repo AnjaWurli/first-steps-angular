@@ -1,5 +1,8 @@
+main {
+  text-align: center;
+}
+
 .form-button {
-  _margin: 1rem;
   margin-top: -1rem;
 }
 
@@ -13,8 +16,11 @@ mat-form-field {
   display: flex;
   flex-direction: column;
   align-items: baseline;
-}
 
-.linethrough {
-  text-decoration: line-through;
+  mat-checkbox {
+    &:checked {
+      //????
+      text-decoration: line-through;
+    }
+  }
 }
