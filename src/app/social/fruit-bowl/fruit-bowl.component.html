@@ -1,8 +1,14 @@
 <mat-card class="fruit-salad">
-    <figure *ngFor="let fruit of fs.selection">
-        <img src="{{fruit.img}}">
-        <figcaption>{{fruit.title}}</figcaption>
-
-    </figure>
-
+    <mat-card-header>
+        <mat-card-title>Picked:</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div *ngFor="let fruit of fs.selection; first as f">
+            <figure *ngIf="!f">
+                <img src="{{fruit.img}}">
+                <figcaption>{{fruit.title}}</figcaption>
+            </figure>
+        </div>
+        <p *ngIf="fs.selection.length===1" class="empty-message">No fruits selected</p>
+    </mat-card-content>
 </mat-card>

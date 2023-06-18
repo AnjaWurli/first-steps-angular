@@ -3,6 +3,9 @@
     <mat-card-title>{{fruit.title}}</mat-card-title>
     <mat-card-subtitle>{{fruit.info}}</mat-card-subtitle>
     <mat-card-actions>
-        <button mat-button (click)="fs.addSelection(fruit)">Pick</button>
+        <button mat-button (click)="fs.addSelection(fruit)">
+            <mat-icon>{{fs.fruitPicked(fruit)?'close':'back_hand'}}</mat-icon>
+            {{fs.fruitPicked(fruit)?'Remove':'Pick'}}
+        </button>
     </mat-card-actions>
 </mat-card>

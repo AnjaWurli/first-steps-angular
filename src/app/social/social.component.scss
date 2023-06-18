@@ -4,9 +4,9 @@
   text-align: center;
 
   .fruit-basket {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     align-content: start;
+    flex-wrap: wrap;
     gap: 1rem;
     margin: 2rem;
   }

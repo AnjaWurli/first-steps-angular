@@ -51,10 +51,10 @@ export class FruitService {
 
   selection = [
     {
-      title: 'Lets make Fruit Salat',
-      subtitle: 'calories',
-      info: '0 kcal/100g',
-      img: '../assets/pics/fruits.jpg',
+      title: '',
+      subtitle: '',
+      info: '',
+      img: '',
     },
   ];
 
@@ -64,8 +64,25 @@ export class FruitService {
     info: string;
     img: string;
   }) {
-    this.selection.push(fruit);
+    if (!this.fruitPicked(fruit)) {
+      this.selection.push(fruit);
+    } else {
+      let a: number = this.selection.findIndex((selectedFruit) => {
+        return selectedFruit.title === fruit.title;
+      });
+      this.selection.splice(a, 1);
+    }
   }
 
+  fruitPicked(fruit: {
+    title: string;
+    subtitle: string;
+    info: string;
+    img: string;
+  }): boolean {
+    return this.selection.some((selectedFruit) => {
+      return selectedFruit.title === fruit.title;
+    });
+  }
   constructor() {}
 }
