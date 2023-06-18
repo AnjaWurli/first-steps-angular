@@ -1,0 +1,15 @@
+.fruit-salad {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  width: 40vw;
+  margin: 2rem;
+  text-align: center;
+  color: white;
+  img {
+    width: 80px;
+    border-radius: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}

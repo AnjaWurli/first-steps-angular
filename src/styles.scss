@@ -10,4 +10,18 @@ body {
   background-color: gray;
 }
 
+.card {
+  margin: 2rem;
+  text-align: center;
+
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}
+
 //@import "@angular/material/prebuilt-themes/purple-green.css";

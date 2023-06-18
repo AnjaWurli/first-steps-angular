@@ -6,35 +6,12 @@
 
 <div class="fruit-wrapper">
     <div>
-        <mat-card class="fruit-salad">
-            <figure *ngFor="let fruit of fruits">
-                <img src="{{fruit.img}}">
-                <figcaption>{{fruit.title}}</figcaption>
-            </figure>
+        <app-fruit-bowl></app-fruit-bowl>
+        <app-fruit-card></app-fruit-card>
+        <h2>Your fruits</h2>
+        <app-fruit-card [fruits]="fs.fruits"></app-fruit-card>
+    </div>
 
-        </mat-card>
-        <div *ngFor="let fruit of fruits; first as f">
-            <mat-card class="fruit-card" *ngIf="f">
-                <img mat-card-image src="{{fruit.img}}">
-                <mat-card-title>{{fruit.title}}</mat-card-title>
-                <mat-card-subtitle>{{fruit.subtitle}}</mat-card-subtitle>
-                <mat-card-actions>
-                    <button mat-button>Like</button>
-                    <button mat-button>Share</button>
-                </mat-card-actions>
-            </mat-card>
-        </div>
-    </div>
-    <div class="fruit-basket">
-        <div *ngFor="let fruit of fruits; first as f">
-            <mat-card class="fruit-card fruit-profile" *ngIf="!f">
-                <img mat-card-image src="{{fruit.img}}">
-                <mat-card-title>{{fruit.title}}</mat-card-title>
-                <mat-card-subtitle>{{fruit.info}}</mat-card-subtitle>
-                <mat-card-actions>
-                    <button mat-button (click)="addSelection(fruit)">Pick</button>
-                </mat-card-actions>
-            </mat-card>
-        </div>
-    </div>
+    <app-fruit-basket class="fruit-basket">
+    </app-fruit-basket>
 </div>

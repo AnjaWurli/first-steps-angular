@@ -1,50 +1,13 @@
 .fruit-wrapper {
   display: flex;
   justify-content: space-around;
-
-  .fruit-salad {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
-    width: 400px;
-    margin: 2rem;
-    text-align: center;
-    color: white;
-    img {
-      width: 80px;
-      border-radius: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-    }
-  }
-
-  .fruit-card {
-    width: 400px;
-    margin: 2rem;
-    text-align: center;
-
-    mat-card-actions {
-      display: flex;
-      justify-content: center;
-    }
-
-    img {
-      aspect-ratio: 1;
-      object-fit: cover;
-    }
-  }
+  text-align: center;
 
   .fruit-basket {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-  .fruit-profile {
-    width: 200px;
-
-    img {
-      width: 80px;
-      border-radius: 100%;
-      margin: 1rem auto;
-    }
+    align-content: start;
+    gap: 1rem;
+    margin: 2rem;
   }
 }
