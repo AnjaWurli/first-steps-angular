@@ -8,14 +8,22 @@ import { HeaderComponent } from './header/header.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './material/material.module';
 import { SocialComponent } from './social/social.component';
 import { FruitCardComponent } from './social/fruit-card/fruit-card.component';
 import { FruitBasketComponent } from './social/fruit-basket/fruit-basket.component';
 import { FruitBowlComponent } from './social/fruit-bowl/fruit-bowl.component';
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, HeaderComponent, SocialComponent, FruitCardComponent, FruitBasketComponent, FruitBowlComponent],
+  declarations: [
+    AppComponent,
+    TodoComponent,
+    HeaderComponent,
+    SocialComponent,
+    FruitCardComponent,
+    FruitBasketComponent,
+    FruitBowlComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

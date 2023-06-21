@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-todo',
@@ -13,11 +14,19 @@ export class TodoComponent {
     { text: 'Extra Cheese', id: 2, done: false },
   ];
 
-  addTodo(e: any, wantTodo: string) {
-    e.preventDefault();
-    let newTodo = { text: wantTodo, id: this.todos.length + 1, done: false };
-    if (wantTodo.length >= 5) {
+  whichTodos: string = 'all';
+  filteredTodos: { text: string; id: number; done: boolean }[] = this.todos;
+
+  addTodo(addTodoTxt: NgForm) {
+    console.log(addTodoTxt);
+    let newTodo = {
+      text: addTodoTxt.value.add,
+      id: this.todos.length + 1,
+      done: false,
+    };
+    if (addTodoTxt.value.add.length >= 5) {
       this.todos.push(newTodo);
+      addTodoTxt.resetForm();
     }
   }
 
@@ -27,5 +36,18 @@ export class TodoComponent {
         this.todos.splice(i, 1);
       }
     });
+    this.whichTodos = 'all';
+    this.sortTodo(this.whichTodos);
+  }
+
+  sortTodo(whichTodos: string) {
+    console.log(whichTodos);
+    if (whichTodos === 'all') {
+      this.filteredTodos = this.todos;
+    } else if (whichTodos === 'open') {
+      this.filteredTodos = this.todos.filter((todo) => todo.done === false);
+    } else if (whichTodos === 'done') {
+      this.filteredTodos = this.todos.filter((todo) => todo.done === true);
+    }
   }
 }

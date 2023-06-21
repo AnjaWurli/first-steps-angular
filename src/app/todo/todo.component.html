@@ -3,11 +3,11 @@
 </mat-toolbar>
 
 <main>
-    <form>
+    <form #addTodoTxt="ngForm" (ngSubmit)="addTodo(addTodoTxt)">
         <mat-form-field appearance="fill">
-            <mat-label>Got {{hideTxt?'SECRET':''}} sh*t to do</mat-label>
+            <mat-label for="add">Got {{hideTxt?'SECRET':''}} sh*t to do</mat-label>
 
-            <input matInput id="add" [type]="hideTxt? 'password' : 'text'" minlength="5" #inputSht>
+            <input matInput name="add" id="add" [type]="hideTxt? 'password' : 'text'" minlength="5" ngModel #inputSht>
 
             <mat-hint *ngIf="inputSht.value.length<=5">
                 at least {{inputSht.value.length}}/5 characters
@@ -16,31 +16,32 @@
                 {{inputSht.value.length}} characters written
             </mat-hint>
 
-            <button matSuffix mat-icon-button (click)="$event.preventDefault();hideTxt=!hideTxt"
+            <button matSuffix mat-icon-button type="button" (click)="$event.preventDefault();hideTxt=!hideTxt"
                 [attr.aria-label]="'Hide text'" [attr.aria-pressed]="hideTxt">
                 <mat-icon>{{hideTxt?'key_off':'password'}}</mat-icon>
             </button>
         </mat-form-field>
-        <button mat-raised-button color="primary" class="form-button" (click)="addTodo($event,inputSht.value)">
+
+        <button mat-raised-button color="primary" class="form-button">
             Add Todo</button>
     </form>
 
-    <mat-radio-group>
-        <mat-radio-button class="example-radio-button">
+    <mat-radio-group [(ngModel)]="whichTodos" (change)="sortTodo(whichTodos)" name="sort">
+        <mat-radio-button class="example-radio-button" value="all" checked>
             All </mat-radio-button>
-        <mat-radio-button class="example-radio-button">
+        <mat-radio-button class="example-radio-button" value="open">
             Open
         </mat-radio-button>
-        <mat-radio-button class="example-radio-button">
+        <mat-radio-button class="example-radio-button" value="done">
             Done
         </mat-radio-button>
     </mat-radio-group>
 
-
     <section class="checklist_container">
         <h2>Checklist</h2>
 
-        <mat-checkbox *ngFor="let todo of todos" [checked]="todo.done" #dones (change)="todo.done=$event.checked">
+        <mat-checkbox *ngFor="let todo of filteredTodos" [checked]="todo.done" #dones
+            (change)="todo.done=$event.checked">
             {{todo.text}}
             {{dones.checked}}
         </mat-checkbox>
