@@ -23,17 +23,25 @@
         </mat-form-field>
 
         <button mat-raised-button color="primary" class="form-button">
-            Add Todo</button>
+            Add Todo
+        </button>
     </form>
 
     <mat-radio-group [(ngModel)]="whichTodos" (change)="sortTodo(whichTodos)" name="sort">
         <mat-radio-button class="example-radio-button" value="all" checked>
-            All </mat-radio-button>
+            <span [matBadge]="todos.length" matBadgeOverlap="false" [matBadgeHidden]="todos.length===0">
+                All
+            </span>
+        </mat-radio-button>
         <mat-radio-button class="example-radio-button" value="open">
-            Open
+            <span [matBadge]="countTodos(false)" matBadgeOverlap="false" [matBadgeHidden]="countTodos(false)===0">
+                Open
+            </span>
         </mat-radio-button>
         <mat-radio-button class="example-radio-button" value="done">
-            Done
+            <span [matBadge]="countTodos(true)" matBadgeOverlap="false" [matBadgeHidden]="countTodos(true)===0">
+                Done
+            </span>
         </mat-radio-button>
     </mat-radio-group>
 
@@ -43,10 +51,10 @@
         <mat-checkbox *ngFor="let todo of filteredTodos" [checked]="todo.done" #dones
             (change)="todo.done=$event.checked">
             {{todo.text}}
-            {{dones.checked}}
         </mat-checkbox>
         <button mat-raised-button color="accent" (click)="deleteTodos()">
-            Delete Done</button>
+            Delete Done
+        </button>
 
     </section>
 </main>

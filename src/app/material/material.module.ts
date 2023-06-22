@@ -12,35 +12,25 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatBadgeModule } from '@angular/material/badge';
+
+const MaterialComponents = [
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatIconModule,
+  MatRadioModule,
+  MatCheckboxModule,
+  MatToolbarModule,
+  MatCardModule,
+  FormsModule,
+  ReactiveFormsModule,
+  MatListModule,
+  MatBadgeModule,
+];
 
 @NgModule({
-  imports: [
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatRadioModule,
-    MatCheckboxModule,
-    MatToolbarModule,
-    MatCardModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatListModule,
-    CommonModule,
-  ],
-  exports: [
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatRadioModule,
-    MatRadioGroup,
-    MatCheckboxModule,
-    MatToolbarModule,
-    MatCardModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatListModule,
-  ],
+  imports: [MaterialComponents, CommonModule],
+  exports: [MaterialComponents],
 })
 export class MaterialModule {}

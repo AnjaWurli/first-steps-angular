@@ -50,4 +50,12 @@ export class TodoComponent {
       this.filteredTodos = this.todos.filter((todo) => todo.done === true);
     }
   }
+
+  countTodos(done: boolean) {
+    let counter = 0;
+    this.todos.forEach((todo) => {
+      return todo.done === done ? counter++ : counter;
+    });
+    return counter;
+  }
 }
