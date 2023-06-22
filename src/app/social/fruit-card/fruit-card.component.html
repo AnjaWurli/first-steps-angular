@@ -1,7 +1,7 @@
 <mat-card class="fruit-card card" *ngFor="let fruit of fruits">
     <img mat-card-image src="{{fruit.img}}">
     <mat-card-title>{{fruit.title}}</mat-card-title>
-    <mat-card-subtitle>{{fruit.subtitle}}</mat-card-subtitle>
+    <mat-card-subtitle>{{fs.sumCalories()}} calories</mat-card-subtitle>
     <mat-card-actions>
         <button mat-icon-button color="warn">
             <mat-icon>favorite</mat-icon>

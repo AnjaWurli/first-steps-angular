@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FruitService } from 'src/app/fruit.service';
 
 @Component({
   selector: 'app-fruit-card',
@@ -9,14 +10,16 @@ export class FruitCardComponent {
   @Input() fruits: {
     title: string;
     subtitle: string;
-    info: string;
+    info: number;
     img: string;
   }[] = [
     {
       title: 'Lets make Fruit Salat',
       subtitle: 'calories',
-      info: '0 kcal/100g',
+      info: 0,
       img: '../assets/pics/fruits.jpg',
     },
   ];
+
+  constructor(public fs: FruitService) {}
 }
