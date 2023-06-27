@@ -1,0 +1,32 @@
+.letters {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  font-size: 4rem;
+
+  .hangman_letter {
+    padding: 1rem;
+    text-decoration: underline solid black;
+    text-underline-offset: 1rem;
+    color: rgba(0, 0, 0, 0);
+    font-family: "Courier New", Courier, monospace;
+  }
+  .hangman_letter-guessed {
+    color: black;
+  }
+  .counter {
+    margin-left: auto;
+    &_max {
+      font-size: 1rem;
+    }
+  }
+}
+
+.key_letters {
+  .key_letter {
+    margin: 1rem;
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+  }
+}

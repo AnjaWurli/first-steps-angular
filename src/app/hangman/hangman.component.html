@@ -1,0 +1,15 @@
+<mat-toolbar>
+    <span>Hangman</span>
+</mat-toolbar>
+
+<div class="letters">
+    <p *ngFor="let letter of guessingWord" class="hangman_letter" [class.hangman_letter-guessed]="letter.guessed">
+        {{letter.letter}}
+    </p>
+    <p class="counter">{{counter}} <span class="counter_max"> /10 P.</span></p>
+</div>
+
+<div class="key_letters">
+    <button mat-raised-button color="primary" *ngFor="let key of letters" class="key_letter" [disabled]="key.clicked"
+        (click)="checkLetter(key.letter); key.clicked=true">{{key.letter}}</button>
+</div>

@@ -13,6 +13,7 @@ import { SocialComponent } from './social/social.component';
 import { FruitCardComponent } from './social/fruit-card/fruit-card.component';
 import { FruitBasketComponent } from './social/fruit-basket/fruit-basket.component';
 import { FruitBowlComponent } from './social/fruit-bowl/fruit-bowl.component';
+import { HangmanComponent } from './hangman/hangman.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FruitBowlComponent } from './social/fruit-bowl/fruit-bowl.component';
     FruitCardComponent,
     FruitBasketComponent,
     FruitBowlComponent,
+    HangmanComponent,
   ],
   imports: [
     BrowserModule,
