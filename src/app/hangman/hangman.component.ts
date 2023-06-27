@@ -44,6 +44,7 @@ export class HangmanComponent {
 
   counter: number = 10;
   guessingWord: { letter: string; guessed: boolean }[] = this.randomWord();
+  gameOver: boolean = false;
 
   randomWord() {
     let randomIndex = Math.floor(Math.random() * this.words.length);
@@ -56,7 +57,6 @@ export class HangmanComponent {
     return wordObj;
   }
 
-  guessed: boolean = false;
   checkLetter(guessedLetter: string) {
     if (this.guessingWord.some((letter) => letter.letter === guessedLetter)) {
       this.guessingWord.forEach((letter) => {
@@ -67,5 +67,21 @@ export class HangmanComponent {
     } else {
       this.counter--;
     }
+
+    if (
+      this.guessingWord
+        .map((word) => word.guessed)
+        .every((guessed) => guessed) ||
+      this.counter <= 0
+    ) {
+      this.letters.forEach((l) => (l.clicked = true));
+      this.gameOver = true;
+    }
+  }
+
+  reset() {
+    this.letters.forEach((l) => (l.clicked = false));
+    this.guessingWord = this.randomWord();
+    this.gameOver = false;
   }
 }
