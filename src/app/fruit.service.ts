@@ -4,56 +4,57 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class FruitService {
-  fruits: { title: string; subtitle: string; info: number; img: string }[] = [
-    {
-      title: 'Blue Berry',
-      subtitle: 'dark and healthy',
-      info: 45,
-      img: '../assets/pics/heidelbeere.jpg',
-    },
-    {
-      title: 'Pine Apple',
-      subtitle: 'sweet and sour',
-      info: 50,
-      img: '../assets/pics/ananas.jpg',
-    },
-    {
-      title: 'Fig',
-      subtitle: 'sweet and soft',
-      info: 67,
-      img: '../assets/pics/feige.jpg',
-    },
-    {
-      title: 'Grapes',
-      subtitle: 'sweet and juicy',
-      info: 67,
-      img: '../assets/pics/grape.jpg',
-    },
-    {
-      title: 'Rasberry',
-      subtitle: 'pink and sweet',
-      info: 53,
-      img: '../assets/pics/himbeere.jpg',
-    },
-    {
-      title: 'Kiwi',
-      subtitle: 'sweet and sour',
-      info: 61,
-      img: '../assets/pics/kiwi.jpg',
-    },
-    {
-      title: 'Papaya',
-      subtitle: 'sweet and healthy',
-      info: 35,
-      img: '../assets/pics/papaya.jpg',
-    },
-  ];
+  fruits: { title: string; subtitle: string; calories: number; img: string }[] =
+    [
+      {
+        title: 'Blue Berry',
+        subtitle: 'dark and healthy',
+        calories: 45,
+        img: '../assets/pics/heidelbeere.jpg',
+      },
+      {
+        title: 'Pine Apple',
+        subtitle: 'sweet and sour',
+        calories: 50,
+        img: '../assets/pics/ananas.jpg',
+      },
+      {
+        title: 'Fig',
+        subtitle: 'sweet and soft',
+        calories: 67,
+        img: '../assets/pics/feige.jpg',
+      },
+      {
+        title: 'Grapes',
+        subtitle: 'sweet and juicy',
+        calories: 67,
+        img: '../assets/pics/grape.jpg',
+      },
+      {
+        title: 'Rasberry',
+        subtitle: 'pink and sweet',
+        calories: 53,
+        img: '../assets/pics/himbeere.jpg',
+      },
+      {
+        title: 'Kiwi',
+        subtitle: 'sweet and sour',
+        calories: 61,
+        img: '../assets/pics/kiwi.jpg',
+      },
+      {
+        title: 'Papaya',
+        subtitle: 'sweet and healthy',
+        calories: 35,
+        img: '../assets/pics/papaya.jpg',
+      },
+    ];
 
   selection = [
     {
       title: '',
       subtitle: '',
-      info: 0,
+      calories: 0,
       img: '',
     },
   ];
@@ -61,7 +62,7 @@ export class FruitService {
   addSelection(fruit: {
     title: string;
     subtitle: string;
-    info: number;
+    calories: number;
     img: string;
   }) {
     if (!this.fruitPicked(fruit)) {
@@ -77,7 +78,7 @@ export class FruitService {
   fruitPicked(fruit: {
     title: string;
     subtitle: string;
-    info: number;
+    calories: number;
     img: string;
   }): boolean {
     return this.selection.some((selectedFruit) => {
@@ -89,7 +90,7 @@ export class FruitService {
 
   sumCalories() {
     this.selection.forEach((fruit) => {
-      this.calories += fruit.info;
+      this.calories += fruit.calories;
     });
     return this.calories;
   }

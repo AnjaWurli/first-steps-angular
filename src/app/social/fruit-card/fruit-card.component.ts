@@ -10,13 +10,13 @@ export class FruitCardComponent {
   @Input() fruits: {
     title: string;
     subtitle: string;
-    info: number;
+    calories: number;
     img: string;
   }[] = [
     {
       title: 'Lets make Fruit Salat',
       subtitle: 'calories',
-      info: 0,
+      calories: 0,
       img: '../assets/pics/fruits.jpg',
     },
   ];
