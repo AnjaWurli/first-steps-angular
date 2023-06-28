@@ -10,7 +10,6 @@
 </div>
 
 <button mat-raised-button color="accent" *ngIf="gameOver" class="gameover_btn" (click)="reset()">New Game</button>
-
 <div class="key_letters">
     <button mat-raised-button color="primary" *ngFor="let key of letters" class="key_letter" [disabled]="key.clicked"
         (click)="checkLetter(key.letter); key.clicked=true">{{key.letter}}</button>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { GameoverDialogComponent } from './gameover-dialog/gameover-dialog.component';
 
 @Component({
   selector: 'app-hangman',
@@ -6,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./hangman.component.scss'],
 })
 export class HangmanComponent {
+  constructor(public dialog: MatDialog) {}
+
   words: { word: string; done: boolean }[] = [
     { word: 'random', done: false },
     { word: 'example', done: false },
@@ -76,7 +80,29 @@ export class HangmanComponent {
     ) {
       this.letters.forEach((l) => (l.clicked = true));
       this.gameOver = true;
+      this.counter = 10;
+      this.openDialog();
     }
+  }
+
+  openDialog() {
+    let won: boolean;
+    if (
+      this.guessingWord.map((word) => word.guessed).every((guessed) => guessed)
+    ) {
+      won = true;
+    } else {
+      won = false;
+    }
+    let dialogRef = this.dialog.open(GameoverDialogComponent, {
+      data: { won: won },
+    });
+    dialogRef.afterClosed().subscribe((newGame) => {
+      console.log(typeof newGame);
+      if (newGame === 'true') {
+        this.reset();
+      }
+    });
   }
 
   reset() {

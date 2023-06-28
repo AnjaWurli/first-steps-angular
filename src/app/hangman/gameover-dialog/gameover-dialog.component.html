@@ -1,0 +1,6 @@
+<h2 mat-dialog-title class="go_h">{{data.won?"It's a Win!":"Game Over..."}}</h2>
+<mat-dialog-content class="go_cont">{{data.won?"🥳":"🤷‍♀️"}}</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-dialog-close mat-dialog-close=true mat-button color="accent">New Game</button>
+    <button mat-dialog-close mat-dialog-close=false mat-button>No thanks, just close.</button>
+</mat-dialog-actions>

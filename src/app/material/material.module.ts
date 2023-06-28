@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const MaterialComponents = [
   MatFormFieldModule,
@@ -27,6 +28,7 @@ const MaterialComponents = [
   ReactiveFormsModule,
   MatListModule,
   MatBadgeModule,
+  MatDialogModule,
 ];
 
 @NgModule({

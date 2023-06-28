@@ -14,6 +14,7 @@ import { FruitCardComponent } from './social/fruit-card/fruit-card.component';
 import { FruitBasketComponent } from './social/fruit-basket/fruit-basket.component';
 import { FruitBowlComponent } from './social/fruit-bowl/fruit-bowl.component';
 import { HangmanComponent } from './hangman/hangman.component';
+import { GameoverDialogComponent } from './hangman/gameover-dialog/gameover-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HangmanComponent } from './hangman/hangman.component';
     FruitBasketComponent,
     FruitBowlComponent,
     HangmanComponent,
+    GameoverDialogComponent,
   ],
   imports: [
     BrowserModule,
